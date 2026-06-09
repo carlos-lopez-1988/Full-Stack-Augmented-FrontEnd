@@ -1,0 +1,7 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="task-form">
+  <label for="task-title">New task</label>
+  <div class="form-row">
+    <input id="task-title" type="text" formControlName="title" placeholder="Enter a task title" />
+    <button type="submit" class="primary-button" [disabled]="form.invalid">Create</button>
+  </div>
+</form>

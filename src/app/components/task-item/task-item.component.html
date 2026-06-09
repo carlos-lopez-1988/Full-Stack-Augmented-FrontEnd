@@ -1,0 +1,13 @@
+<article class="task-item">
+  <div class="task-content">
+    <button type="button" class="secondary-button" (click)="onToggle()">
+      {{ task.completed ? 'Undo' : 'Done' }}
+    </button>
+    <div>
+      <p [class.completed]="task.completed">{{ task.title }}</p>
+      <small>Created: {{ task.createdAt | date:'medium' }}</small>
+    </div>
+  </div>
+
+  <button type="button" class="secondary-button" (click)="onDelete()">Delete</button>
+</article>

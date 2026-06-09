@@ -1,0 +1,13 @@
+.user-form {
+  display: grid;
+  gap: 12px;
+}
+
+.user-form input {
+  padding: 12px 14px;
+}
+
+.user-form button {
+  align-self: flex-start;
+  padding: 12px 14px;
+}

@@ -1,0 +1,24 @@
+<section class="user-list">
+  <div class="section-header">
+    <div>
+      <h2>Users from backend</h2>
+      <p>Consume the backend Users APIs directly with reactive state.</p>
+    </div>
+    <span class="status-chip active">Backend data</span>
+  </div>
+
+  <ng-container *ngIf="users$ | async as users">
+    <div *ngIf="users.length; else emptyState" class="user-grid">
+      <app-user-item
+        *ngFor="let user of users"
+        [user]="user"
+        (deleteUser)="deleteUser($event)"
+        (updateUser)="updateUser($event)"
+      ></app-user-item>
+    </div>
+  </ng-container>
+
+  <ng-template #emptyState>
+    <p>No users available yet. Create a user to populate the list.</p>
+  </ng-template>
+</section>

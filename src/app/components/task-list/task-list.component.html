@@ -1,0 +1,24 @@
+<section class="task-list">
+  <div class="section-header">
+    <div>
+      <h2>Current tasks</h2>
+      <p>Tasks are managed reactively through the task service.</p>
+    </div>
+    <span class="status-chip active">Syncs with backend</span>
+  </div>
+
+  <ng-container *ngIf="tasks$ | async as tasks">
+    <div *ngIf="tasks.length; else emptyState" class="task-grid">
+      <app-task-item
+        *ngFor="let task of tasks"
+        [task]="task"
+        (toggleCompletion)="toggleCompletion($event)"
+        (deleteTask)="deleteTask($event)"
+      ></app-task-item>
+    </div>
+  </ng-container>
+
+  <ng-template #emptyState>
+    <p>No tasks are available. Create your first task to begin.</p>
+  </ng-template>
+</section>

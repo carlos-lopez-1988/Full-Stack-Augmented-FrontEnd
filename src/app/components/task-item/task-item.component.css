@@ -1,0 +1,38 @@
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px;
+  border-radius: 16px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  align-items: center;
+}
+
+.task-content {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex: 1;
+}
+
+.task-content p {
+  margin: 0 0 4px;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.task-content p.completed {
+  color: #64748b;
+  text-decoration: line-through;
+}
+
+.task-item small {
+  display: block;
+  color: #64748b;
+}
+
+.secondary-button {
+  min-width: 96px;
+  padding: 10px 14px;
+}

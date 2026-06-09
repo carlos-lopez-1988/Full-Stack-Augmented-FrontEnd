@@ -1,0 +1,43 @@
+<article class="user-item">
+  <div class="user-details" *ngIf="!isEditing; else editForm">
+    <p class="user-name">{{ user.username }}</p>
+    <p class="user-email">{{ user.email }}</p>
+    <small>Created: {{ user.createdAt | date:'medium' }}</small>
+  </div>
+
+  <ng-template #editForm>
+    <div class="edit-fields">
+      <input
+        type="text"
+        name="username"
+        [(ngModel)]="editedUsername"
+        placeholder="Username"
+      />
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="editedEmail"
+        placeholder="Email"
+      />
+    </div>
+  </ng-template>
+
+  <div class="user-actions">
+    <button *ngIf="!isEditing" type="button" class="secondary-button" (click)="toggleEdit()">
+      Edit
+    </button>
+    <button *ngIf="isEditing" type="button" class="secondary-button" (click)="onCancel()">
+      Cancel
+    </button>
+    <button type="button" class="secondary-button" (click)="onDelete()">Delete</button>
+    <button
+      *ngIf="isEditing"
+      type="button"
+      class="primary-button"
+      (click)="onSave()"
+      [disabled]="!editedUsername || !editedEmail"
+    >
+      Save
+    </button>
+  </div>
+</article>

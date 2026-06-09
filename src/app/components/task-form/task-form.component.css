@@ -1,0 +1,15 @@
+.task-form {
+  display: grid;
+  gap: 14px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+}
+
+button {
+  min-width: 108px;
+  padding: 12px 16px;
+}
