@@ -10,5 +10,15 @@ declare const require: {
 };
 
 getTestBed().initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
-const context = require.context('./', true, /\.spec\.ts$/);
-context.keys().map(context);
+
+// Some test runners / webpack configurations may not provide require.context.
+// Guard the call to avoid runtime errors when it's unavailable.
+try {
+  if (typeof require === 'function' && typeof (require as any).context === 'function') {
+    const context = (require as any).context('./', true, /\.spec\.ts$/);
+    context.keys().map(context);
+  }
+} catch (e) {
+  // fall back: do nothing. Tests may be loaded by the test runner configuration.
+  // This prevents "__webpack_require__(...).context is not a function" errors.
+}

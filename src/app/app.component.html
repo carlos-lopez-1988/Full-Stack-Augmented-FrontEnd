@@ -17,10 +17,14 @@
   <div class="card" style="margin-top: 24px;">
     <h2>User management</h2>
     <p class="card-subtitle">Consume the backend Users API directly from the same page.</p>
-    <app-user-form></app-user-form>
+    <ng-container *appDefer>
+      <app-user-form></app-user-form>
+    </ng-container>
   </div>
 
   <div class="card" style="margin-top: 24px;">
-    <app-user-list></app-user-list>
+    <ng-container *appDefer>
+      <app-user-list></app-user-list>
+    </ng-container>
   </div>
 </div>
